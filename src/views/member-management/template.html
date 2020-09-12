@@ -1,0 +1,29 @@
+<div id="member-manager">
+  <div class="wrap-account-content">
+    <div class="title-page">{{ $t('screen.memberManagement.title') }}</div>
+    <div class="subtitle-page">{{ $t('screen.memberManagement.subTitle') }}</div>
+    <div class="button-group">
+      <div>
+        <button class="filter-button btn" type="button">
+          <img src="@/assets/images/button-icon/filter.png" />
+          {{ $t('components.button.filter') }}
+          <b-badge variant="primary" class="circle-badge" v-if="filter > 0">{{ filter }}</b-badge>
+        </button>
+      </div>
+      <div>
+        <Button v-if="isFilter" :name="$t('components.button.clear')" v-on:event-button="clearConditions()"
+          class="clear-button"></Button>
+      </div>
+    </div>
+    <div class="table-member">
+      <TableTemplate :tableHeaders="tableHeaders" :tableDatas="tableDatas"></TableTemplate>
+      <div class="dowloadCSV">
+        <Button :name="$t('components.button.downloadCSV')" v-on:event-button="downloadCSV()">
+          <template v-slot:classIcon="">
+            <img src="@/assets/images/download/downloadCSV.png"/>
+          </template>
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>

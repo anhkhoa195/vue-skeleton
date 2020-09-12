@@ -1,0 +1,17 @@
+#tag-name {
+  .badge-name{
+    font-family: "SF Pro Display";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 12px;
+    color: #FFFFFF;
+    /* Inside Auto Layout */
+    align-self: center;
+    margin: 6px 0px;
+    border-radius: 20px;
+  }
+  .success{
+    background: #FEAE00 !important;
+  }
+}

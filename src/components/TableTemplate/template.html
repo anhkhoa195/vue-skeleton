@@ -1,0 +1,57 @@
+<div id="table-component">
+  <template>
+    <div class="wrap-search">
+      <div class="select-group">
+        <div class="card-1">
+          <b-form-select class="page-select" v-model="pagination.rowsPerPage" :options="rowsPerPageItems"></b-form-select>
+        </div>
+        <div class="label-select">{{ $t('components.pageSelector')}}</div>
+      </div>
+      <div class="search-group">
+        <b-input-group>
+          <b-form-input :placeholder="$t('components.search')" v-model="conditionSearch"></b-form-input>
+          <!-- <b-input-group-append class="icon-search">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+          </b-input-group-append> -->
+        </b-input-group>
+      </div>
+    </div>
+    <b-table id="component-table" class="elevation-1" :fields="tableHeaders" :items="tableDatas" :per-page="pagination.rowsPerPage" :current-page="pagination.page">
+      <b-thead>
+        <tr>
+          <template v-for='header in tableHeaders'>
+            <template v-if='header.key === constant.CHECKBOX'>
+              <th style='width: 40px;'>
+                <b-form-checkbox id="checkbox-1" name="checkbox-1" value="accepted"
+                unchecked-value="not_accepted"></b-form-checkbox>
+              </th>
+            </template>
+            <template v-else-if='header.key === constant.BUTTON_TYPE'>
+              <th></th>
+            </template>
+            <template v-else>
+              <th>{{header.label}}
+                <img class="centered" src="@/assets/images/button-icon/desc.png"/>
+                <img class="centered" src="@/assets/images/button-icon/asc.png"/>
+              </th>
+            </template>
+          </template>
+        </tr>
+      </b-thead>
+      <template v-slot:cell(checkBox)="row">
+          <b-form-checkbox id="checkbox-1" name="checkbox-1" value="accepted"
+          unchecked-value="not_accepted"></b-form-checkbox>
+      </template>
+      <template v-slot:cell(button)="row">
+        <div>
+          <Button :name="$t('components.button.detail')" v-on:event-button="detailInfo()" class="button-detail"></Button>
+        </div>
+      </template>
+    </b-table>
+  </template>
+  <div class="wrap-search">
+    <p class="mt-3">{{ tableDatas.length }}{{ $t('components.table.totalItem') }}{{firstCurrentItem}}〜{{lastCurrentItem}}{{$t('components.table.showItems')}}</p>
+    <b-pagination class="pagination-page" v-model="currentPage" :total-rows="tableDatas.length" first-number last-number 
+    :per-page="pagination.rowsPerPage" prev-text="‹ 前へ" next-text="次へ ›" aria-controls="component-table"></b-pagination>
+  </div>
+</div>

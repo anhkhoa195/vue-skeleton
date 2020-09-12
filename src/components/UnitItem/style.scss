@@ -1,0 +1,60 @@
+#partner-unit-item {
+  margin-top: 15px;
+
+  .format-normal {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;  
+  }
+  .title-unit-item {
+    padding: 0.438rem;
+    background-color: #eaeaea;
+  }
+  .title-text {
+    font-family: "SF Pro Display";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 120%;
+    /* or 19px */
+    
+    letter-spacing: 0.01em;
+    
+    /* Text/01. Body */
+    
+    color: #606F7B;
+    margin-bottom: 15px;
+  }
+  .sub-text-row {
+    text-align: left;
+    font-family: "SF Pro Display";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 150%;
+    color: #606F7B;
+    background: #F4F6F8;
+    flex: none;
+    order: 0;
+    align-self: center;
+    margin: 0px 0px;
+    height: 44px;
+  }
+  .sub-text-row-odd{
+    background: #FFFFFF;
+  }
+  .sub-text-format {
+    font-size: 15px;
+    font-family: "SF Pro Display";
+    color: #484848;
+    white-space: pre-line;
+    word-break: break-word;
+    margin: 10px 0px;
+  }
+  .format-start{
+    margin-left: 0.5rem;
+  }
+
+}

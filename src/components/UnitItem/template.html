@@ -1,0 +1,13 @@
+<div id="partner-unit-item">
+  <div class="title-text" v-if="title">{{ title }}</div>
+  <template v-if="listItems" v-for="(item, index) in listItems">
+    <b-row class="sub-text-row" :class="{ 'sub-text-row-odd' : index % 2 != 0 }">
+      <b-col cols="5">
+        <div class="sub-text-format format-normal">{{ item.key }}</div>
+      </b-col>
+      <b-col>
+        <div class="sub-text-format format-normal">{{ displayDate(item.value) }}</div>
+      </b-col>
+    </b-row>
+  </template>
+</div>

@@ -1,0 +1,78 @@
+<div id="private-layout">
+    <!--Left-->
+    <div class="main-menu">
+        <div class="menubar-header text-center">
+            <a class="menubar-brand router-link-active">
+                <img class="logo-square" src="@/assets/images/logo_square.png" />
+            </a>
+        </div>
+        <div class="menubar-body">
+            <div class="menu-item" v-for="item in menuItems" @click="setCurrentItem(item)"
+                :class="{ 'current-item': currentItem && currentItem == item }">
+                <div>
+                    <img class="icon-item" :class="{ 'current-item': currentItem && currentItem == item }"
+                        src="@/assets/images/dashboard.png" />
+                    <img v-if="currentItem && currentItem == item" class="polygon" src="@/assets/images/polygon.png" />
+                </div>
+                <div class="label-item" :class="{ 'current-label-item': currentItem && currentItem == item }">{{ item }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right-->
+    <div class="page-items">
+        <b-navbar>
+            <div class="profile">
+                <img src="@/assets/images/profile_photo.png" />
+            </div>
+            <div class="line-official-mark">
+                <img src="@/assets/images/line-official-mark.png" />
+            </div>
+            <div class="title">
+                {{ dataInfo.contactOfficial }}
+                <b-icon-chevron-down></b-icon-chevron-down>
+            </div>
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav class="mini-profile">
+                    <b-nav-item>@{{ dataInfo.mail }}</b-nav-item>
+                    <b-nav-item>
+                        <b-icon-envelope></b-icon-envelope> {{ dataInfo.quanitity }}
+                    </b-nav-item>
+                    <b-nav-item>
+                        <b-icon-person-fill></b-icon-person-fill> {{ dataInfo.memberCount }}
+                    </b-nav-item>
+                </b-navbar-nav>
+            </b-collapse>
+            <!-- Right aligned nav items -->
+            <div class="user-info">
+                <b-navbar-nav class="ml-auto">
+                    <b-nav-item-dropdown right>
+                        <!-- Using 'button-content' slot -->
+                        <template v-slot:button-content>
+                            <b-icon-person-circle></b-icon-person-circle>
+                            <em> {{ dataInfo.userName }} </em>
+                        </template>
+                        <b-dropdown-item>Sign Out</b-dropdown-item>
+                    </b-nav-item-dropdown>
+                </b-navbar-nav>
+            </div>
+        </b-navbar>
+    </div>
+    <div class="list-title" v-if="currentItem && groupItems">
+        <div class="menu-mini">
+            <b-list-group>
+                <div v-for="item in groupItems">
+                    <b-list-group-item @click="closeList">{{ item.title }}</b-list-group-item>
+                    <div v-if="item.listItems" v-for="miniItem in item.listItems">
+                        <b-list-group-item class="mini-title">{{ item.title }}</b-list-group-item>
+                    </div>
+                </div>
+            </b-list-group>
+        </div>
+    </div>
+    <div class="main-content" :class="{ 'new-main-content': currentItem}">
+        <div class="wrap-content">
+            <router-view></router-view>
+        </div>
+    </div>
+</div>

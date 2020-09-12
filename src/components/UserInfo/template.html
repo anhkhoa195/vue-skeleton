@@ -1,0 +1,4 @@
+<button class="format-font btn" type="button" @click="handleSubmit" v-bind:class="{ 'label-blinking': isBlink }">
+  <slot name="classIcon"></slot>
+  <i class="fa fa-spinner fa-spin" v-if="onRequest"></i>{{ name }}
+</button>

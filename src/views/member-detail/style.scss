@@ -1,0 +1,50 @@
+#member-detail{
+    ::v-deep .wrap-account-content {
+      padding: 30px;
+      background: #F8FAFC;
+      width: 100%;
+      height: calc(100vh - 62px);
+      overflow: auto;
+    }
+    .button-back{
+      position: static;
+      width: 28px;
+      height: 28px;
+      /* Global/11. Seperator */
+
+      background: #E0E6EB;
+      border-radius: 100px;
+
+      /* Inside Auto Layout */
+
+      flex: none;
+      order: 0;
+      align-self: center;
+      margin: 0px  !important;
+    }
+    .centered{
+      position: absolute;
+      transform: translate(-50%, 0%);
+    }
+    .label-back{
+      margin-left: 5px;
+      margin-top: 3px;
+      font-family: "SF Pro Display";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 150%;
+      /* identical to box height, or 22px */
+
+
+      /* Text/01. Body */
+
+      color: #606F7B;
+
+      /* Inside Auto Layout */
+
+      flex: none;
+      order: 1;
+      align-self: center;
+    }
+}
